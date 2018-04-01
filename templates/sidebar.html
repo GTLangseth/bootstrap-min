@@ -1,18 +1,6 @@
 <ul class="nav nav-list">
-{% if LINKS %}
-<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
-{% for name, link in LINKS %}
-    <li><a href="{{ link }}"><i class="icon-external-link"></i>{{ name }}</a></li>
-{% endfor %}
-{% endif %}
 {% if SOCIAL %}
 <li class="nav-header"><h4><i class="icon-home icon-large"></i> social</h4></li>
-{% if FEED_ALL_ATOM %}
-<li><a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" rel="alternate"><i class="icon-bookmark icon-large"></i>atom feed</a></li>
-{% endif %}
-{% if FEED_RSS %}
-<li><a href="{{ SITEURL }}/{{ FEED_RSS }}" rel="alternate"><i class="icon-bookmark icon-large"></i>rss feed</a></li>
-{% endif %}
 {% for name, link in SOCIAL %}
     <li><a href="{{ link }}"><i class="icon-{{ name }}-sign icon-large"></i>{{ name }}</a></li>
 {% endfor %}
@@ -26,17 +14,6 @@
 </a>
 </li>
 {% endfor %}
-
-{% if TAGS %}
-<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
-{% for tag in tag_cloud %}
-<li class="tag-{{ tag.1 }}">
-    <a href="{{ SITEURL }}/{{ tag.0.url }}">
-        <i class="icon-tag icon-large"></i>{{ tag.0 }}
-    </a>
-</li>
-{% endfor %}
-{% endif %}
 
 {% include 'twitter_profile.html' %}
 {% include 'search_sidebar.html' %}
